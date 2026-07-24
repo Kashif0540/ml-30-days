@@ -106,8 +106,3 @@ def practice_task():
     print("\nProducts with Stock < 10:\n",low_stock)
         
 practice_task()
-
-
-    # Comment this out first and try to solve the practice task yourself
-    # in a separate scratch file before checking this solution.
-    practice_task_solution()

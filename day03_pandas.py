@@ -7,6 +7,13 @@ Goal:
     (like an Excel sheet in code) — creating DataFrames, filtering rows,
     grouping data to compute summaries, and merging multiple tables together.
 
+Topics Covered:
+    • Creating DataFrames
+    • Accessing columns and basic DataFrame properties
+    • Filtering rows
+    • GroupBy operations and aggregations
+    • Merging DataFrames
+    • Practice exercise with products and stock data
 """
 
 import pandas as pd

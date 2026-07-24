@@ -7,93 +7,68 @@ Goal:
     (like an Excel sheet in code) — creating DataFrames, filtering rows,
     grouping data to compute summaries, and merging multiple tables together.
 
-Run this file directly to see the output of each section:
-    python day03_pandas.py
-
-Requires pandas — install it first if needed:
-    pip install pandas
 """
 
 import pandas as pd
 
-
-# ---------------------------------------------------------------------------
-# PART 1: Creating a DataFrame
-# ---------------------------------------------------------------------------
-
 def dataframe_basics():
-    print("\n--- Part 1: DataFrame Basics ---")
+    print("Muhammad Kashif AI/ML(pandas) Pracitce")
+    print("\nPart1:DataFrame Basics\n")
 
-    data = {
-        "Name": ["Ali", "Sara", "Ahmed", "Bilal", "Hina"],
+    data={
+            "Name": ["Ali", "Sara", "Ahmed", "Bilal", "Hina"],
         "City": ["Lahore", "Karachi", "Lahore", "Karachi", "Lahore"],
         "Marks": [85, 90, 78, 88, 92]
     }
-    df = pd.DataFrame(data)
-    print("Full DataFrame:\n", df)
 
-    # Selecting a single column
-    print("\nJust the Marks column:\n", df["Marks"])
+    df=pd.DataFrame(data)
+    print(df)
 
-    # Basic info about the DataFrame
-    print("\nShape (rows, columns):", df.shape)
-    print("Column names:", list(df.columns))
+    print("\nName Col:\n",df["Name"])
 
+    print("\nShape of dataframe:\n",df.shape)
+    print("\nColumn names:\n",list(df.columns))
+    
     return df
 
 
-# ---------------------------------------------------------------------------
-# PART 2: Filtering rows
-# ---------------------------------------------------------------------------
-
-def filtering_rows(df):
-    print("\n--- Part 2: Filtering Rows ---")
-
-    # Keep only rows where City is Lahore
-    lahore_students = df[df["City"] == "Lahore"]
-    print("Students from Lahore:\n", lahore_students)
-
-    # Keep only rows where Marks > 85
-    high_scorers = df[df["Marks"] > 85]
-    print("\nStudents with Marks > 85:\n", high_scorers)
-
-
-# ---------------------------------------------------------------------------
-# PART 3: GroupBy — grouping rows and summarizing them
-# ---------------------------------------------------------------------------
+def filtering_basics(df):
+        print("\nPart2: FIltering Basics\n")
+        
+        lahore_st=df[df["City"] == "Lahore"]
+        print("Students from Lahore:\n",lahore_st)
+        
+df=dataframe_basics()
+filtering_basics(df)
 
 def groupby_basics(df):
-    print("\n--- Part 3: GroupBy ---")
+    print("\nPart3:Groupby Basics\n")
+    
+    avg_city=df.groupby("City")["Marks"].mean()
+    print("Avg/City:",avg_city) 
+    
+    city_stats=df.groupby("City")["Marks"].agg(["mean","max","min","max"])
+    print("\nCity_Stats:\n",city_stats)
+    
 
-    # Group students by City, then find the average Marks per city
-    city_avg = df.groupby("City")["Marks"].mean()
-    print("Average marks per city:\n", city_avg)
-
-    # You can also get multiple statistics at once
-    city_stats = df.groupby("City")["Marks"].agg(["mean", "max", "min", "count"])
-    print("\nMultiple stats per city:\n", city_stats)
-
-
-# ---------------------------------------------------------------------------
-# PART 4: Merge — joining two DataFrames on a common column
-# ---------------------------------------------------------------------------
+groupby_basics(df)
 
 def merge_basics(df):
-    print("\n--- Part 4: Merge ---")
-
-    attendance = pd.DataFrame({
-        "Name": ["Ali", "Sara", "Ahmed", "Bilal", "Hina"],
+    print("\nPart3:Merge Basics")
+    
+    attendance=pd.DataFrame({
+                "Name": ["Ali", "Sara", "Ahmed", "Bilal", "Hina"],
         "Attendance%": [95, 88, 76, 90, 99]
-    })
-
-    merged_df = pd.merge(df, attendance, on="Name")
-    print("Merged DataFrame (Marks + Attendance):\n", merged_df)
-
-    return merged_df
+        })
+        
+    merged_df=pd.merge(df,attendance,on="Name")
+    print("Merged DataFrame (Marks + Attendance):\n",merged_df)
+        
+merge_basics(df)
 
 
 # ---------------------------------------------------------------------------
-# PRACTICE TASK (try to solve this yourself BEFORE reading the solution below)
+#PRACTICE TASK:
 #
 # 1. Create a DataFrame of 5 products with columns: Product, Category, Price
 # 2. Use groupby("Category")["Price"].mean() to get average price per category
@@ -101,43 +76,37 @@ def merge_basics(df):
 # 4. Merge both DataFrames on the "Product" column
 # 5. From the merged table, filter products where Stock < 10
 # ---------------------------------------------------------------------------
-
-def practice_task_solution():
-    print("\n--- Practice Task Solution ---")
-
-    # Step 1: products DataFrame
-    products = pd.DataFrame({
-        "Product": ["Laptop", "Rice", "Phone", "Sugar", "Headphones"],
-        "Category": ["Electronics", "Grocery", "Electronics", "Grocery", "Electronics"],
-        "Price": [120000, 200, 60000, 150, 3500]
-    })
-    print("Products:\n", products)
-
-    # Step 2: average price per category
-    category_avg = products.groupby("Category")["Price"].mean()
-    print("\nAverage price per category:\n", category_avg)
-
-    # Step 3: stock DataFrame
-    stock = pd.DataFrame({
+print("\n--------------------------\n")
+def practice_task():
+    print("\nPractice Task\n")
+    
+    data={
+        "Product": ["Laptop", "Rice", "Phone","Sugar", "Headphones"],
+        "Category": ["Electronics", "Grocery", "Electronics","Grocery", "Electronics"],
+        "Price": [870, 53, 480,31, 230]
+        }
+        
+    df=pd.DataFrame(data)
+    print(df)
+    
+    avg_category=df.groupby("Category")["Price"].mean()
+    print("\nAvg per category:\n",avg_category)
+    
+    stock=pd.DataFrame({
         "Product": ["Laptop", "Rice", "Phone", "Sugar", "Headphones"],
         "Stock": [5, 50, 8, 40, 15]
-    })
-    print("\nStock:\n", stock)
+        })
+        
+    print("\nStock:\n",stock)
+    
+    merged_df=pd.merge(df,stock,on="Product")
+    print("\nMerged products + stock:\n",merged_df)
+    
+    low_stock=merged_df[merged_df["Stock"]<10]
+    print("\nProducts with Stock < 10:\n",low_stock)
+        
+practice_task()
 
-    # Step 4: merge on Product
-    merged = pd.merge(products, stock, on="Product")
-    print("\nMerged products + stock:\n", merged)
-
-    # Step 5: filter products with low stock
-    low_stock = merged[merged["Stock"] < 10]
-    print("\nProducts with Stock < 10:\n", low_stock)
-
-
-if __name__ == "__main__":
-    df = dataframe_basics()
-    filtering_rows(df)
-    groupby_basics(df)
-    merge_basics(df)
 
     # Comment this out first and try to solve the practice task yourself
     # in a separate scratch file before checking this solution.

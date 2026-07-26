@@ -1,3 +1,139 @@
+# 30 Days ML — Notes
+
+Theory notes for each day of the challenge. Code and practice exercises live in the separate `dayXX_*.py` files — this file is just for the concepts, definitions, and examples so revision is quick.
+
+---
+
+## Day 1: Python Refresher | List Comprehensions & NumPy Arrays
+
+**Topic:** List comprehensions, NumPy array basics, vectorization, indexing
+
+### Why This Matters
+
+Every ML algorithm works on arrays of numbers. Before touching any model, you need to be comfortable creating, transforming, and filtering arrays — that's the entire point of today.
+
+---
+
+### 1. List Comprehension
+
+**Definition:** A compact way to build a list by applying an expression to every item in an iterable, optionally filtering with a condition, a one-line replacement for a `for` loop that appends to a list.
+
+Formula:
+```
+[EXPRESSION for ITEM in ITERABLE if CONDITION]
+```
+
+**Example:**
+```python
+# Loop version
+squares = []
+for x in range(10):
+    squares.append(x ** 2)
+
+# Comprehension version — same result, one line
+squares = [x ** 2 for x in range(10)]
+
+# With a filter condition
+even_squares = [x ** 2 for x in range(10) if x % 2 == 0]
+
+# Nested — flattening a 2D list
+matrix = [[1, 2, 3], [4, 5, 6]]
+flat = [num for row in matrix for num in row]
+```
+
+**Where it's used:** Filtering, transforming, or extracting data — common in preprocessing steps before a dataset even reaches NumPy or Pandas.
+
+---
+
+### 2. NumPy Array
+
+**Definition:** NumPy's core object, the `ndarray`, is a fixed-type, multi-dimensional array that supports element-wise math directly — unlike a Python list.
+
+**The problem it solves:**
+```python
+my_list = [1, 2, 3]
+my_list * 2   # [1, 2, 3, 1, 2, 3]  -> repeats the list, not real math
+
+arr = np.array([1, 2, 3])
+arr * 2       # [2 4 6]  -> multiplies each element
+```
+
+**Creating arrays:**
+```python
+a = np.array([1, 2, 3, 4, 5])          # 1D
+b = np.array([[1, 2, 3], [4, 5, 6]])   # 2D (matrix)
+
+np.zeros((3, 3))        # array of zeros, given shape
+np.ones((2, 4))          # array of ones, given shape
+np.arange(0, 10, 2)      # like Python's range(): [0 2 4 6 8]
+np.linspace(0, 1, 5)     # 5 evenly spaced points between 0 and 1
+```
+
+**Array info:**
+```python
+b.shape   # (2, 3) -> rows, columns
+b.ndim    # 2      -> number of dimensions
+b.dtype   # int64  -> data type
+```
+
+---
+
+### 3. Vectorized Operations
+
+**Definition:** Applying a math operation across an entire array at once, without writing a loop. NumPy runs this in compiled C code internally, which is why it's dramatically faster than a Python-level loop.
+
+```python
+a = np.array([1, 2, 3, 4])
+
+a * 2        # [2 4 6 8]
+a + a        # [2 4 6 8]
+a ** 2       # [1 4 9 16]
+np.sqrt(a)   # square root of each element
+```
+
+---
+
+### 4. Indexing & Boolean Masking
+
+```python
+arr = np.array([10, 20, 30, 40, 50])
+
+arr[0]         # 10   -> first element
+arr[-1]        # 50   -> last element
+arr[1:3]       # [20 30]  -> slice
+arr[arr > 25]  # [30 40 50]  -> boolean masking
+```
+
+**Boolean masking** filters an array based on a condition — this is the most common way data gets filtered in ML (removing outliers, selecting rows that meet a condition, etc).
+
+---
+
+### 5. Performance: List Comprehension vs NumPy
+
+Timing the same calculation (squaring 1 million numbers) both ways shows NumPy is typically 10-50x faster, because it avoids the overhead of a Python-level loop entirely. This is why every ML library is built on NumPy arrays rather than plain Python lists.
+
+---
+
+### Quick Reference Table
+
+| Concept | What it does | Example |
+|---|---|---|
+| List comprehension | One-line loop to build a list | `[x**2 for x in range(10)]` |
+| NumPy array | Fixed-type array with vectorized math | `np.array([1,2,3])` |
+| Vectorized op | Math applied to whole array at once | `a * 2`, `a + a` |
+| Boolean masking | Filter array by condition | `arr[arr > 25]` |
+
+### Practice Task Covered
+
+1. List comprehension: cubes of numbers 1-15 divisible by 3
+2. Convert that list to a NumPy array
+3. Boolean mask to keep only values greater than 500
+
+Solutions are in `day01_python-refresher.py`.
+
+
+
+
 # Day 5 Notes | Linear Algebra Basics
 
 **Topic:** Matrices, Dot Product, Matrix Multiplication, Transpose, Eigenvalues

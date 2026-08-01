@@ -9,62 +9,73 @@ This is the math NumPy has been quietly using under the hood since Day 1.
 
 import numpy as np
 
+def matrix():
+    print("\n               MUHAMMAD KASHIF(AI/ML day5->linear algebra basics)       \n")
+    print("\n---Matrix----\n")
+    
+    A =np.array([[1,2],
+    [3,4]])
+    B =np.array([[5,6],
+    [7,8]])
+    
+    print("A:\n",A)
+    print("B:\n",B)
+    
+    print("Shape of A:",A.shape)
 
-def matrix_basics():
-    print("--- Matrices ---")
+    return A,B
 
-    A = np.array([[1, 2],
-                  [3, 4]])
-    B = np.array([[5, 6],
-                  [7, 8]])
+#storing the returned values for lated use in other functions   
+A,B=matrix()
 
-    print("A =\n", A)
-    print("B =\n", B)
-    print("shape of A:", A.shape)
+def dot_product():
+    print("\n\n-----DOT PRODUCT-----\n")
+    
+    quantity=np.array([12,4,6])
+    prices=np.array([100,225,450])
+    
+    total=np.dot(quantity,prices)
+    
+    print("QUANTITY:",quantity)
+    print("PRICES:",prices)
+    print("TOTAL:",total)
+    
+dot_product()
 
-    return A, B
+def matrix_multiplication(A,B):
+    print("\n\n-----MATRIX MULTIPLICATION------\n")
+    
+    result=np.dot(A,B)
+    print("A DOT B:",result)
+    
+    # the operator @ does same multiplication thing
+    
+    result1=A @ B
+    print("\n A @ B:",result1)
 
+#this is how matrix multiplication happens
+#[1×5 + 2×7    1×6 + 2×8]
+#[3×5 + 4×7    3×6 + 4×8]    
+matrix_multiplication(A,B)
 
-def dot_product_demo():
-    print("\n--- Dot Product ---")
+def transpose():
+    print("\n\n----TRANSPOSE----\n")
+    
+    print("A:",A)
+    print("\nA.T:",A.T)
+    
+transpose()
 
-    # classic example: total bill = quantity * price, summed up
-    qty = np.array([2, 3, 1])
-    price = np.array([150, 100, 500])
-
-    total_bill = np.dot(qty, price)
-    print("qty:", qty)
-    print("price:", price)
-    print("total bill:", total_bill)
-
-
-def matrix_multiplication_demo(A, B):
-    print("\n--- Matrix Multiplication ---")
-
-    result = np.dot(A, B)
-    print("A dot B =\n", result)
-
-    # the @ operator does the same thing, just shorter to write
-    result_alt = A @ B
-    print("A @ B =\n", result_alt)
-
-
-def transpose_demo(A):
-    print("\n--- Transpose ---")
-    print("A =\n", A)
-    print("A.T =\n", A.T)
-
-
-def eigen_demo(A):
-    print("\n--- Eigenvalues & Eigenvectors ---")
-
-    eigenvalues, eigenvectors = np.linalg.eig(A)
-    print("eigenvalues:", eigenvalues)
-    print("eigenvectors:\n", eigenvectors)
-
+def eigen():
+    print("\n\n-----EIGEN VALUES AND EIGEN VECTORS------\n")
+    
+    eigenvalues,eigenvectors=np.linalg.eig(A)
+    print("EIGEN VALUES:",eigenvalues)
+    print("EIGEN VECTORS:",eigenvectors)
+    
+eigen()
 
 # ---------------------------------------------------------------------
-# Practice task - try this yourself before looking at the solution below
 #
 # 1. marks = [80, 90, 70], weightage = [0.3, 0.5, 0.2]
 #    find the weighted total score using a dot product
@@ -74,30 +85,32 @@ def eigen_demo(A):
 # ---------------------------------------------------------------------
 
 def practice_task():
-    print("\n--- Practice Task ---")
-
-    marks = np.array([80, 90, 70])
-    weightage = np.array([0.3, 0.5, 0.2])
-    weighted_score = np.dot(marks, weightage)
-    print("weighted score:", weighted_score)
-
-    M = np.array([[2, 0],
-                  [1, 3]])
-    print("M =\n", M)
-    print("M.T =\n", M.T)
-
-    eigenvalues, _ = np.linalg.eig(M)
-    print("eigenvalues of M:", eigenvalues)
-
-    N = np.array([[1, 1],
-                  [0, 1]])
-    print("M @ N =\n", M @ N)
-
-
-if __name__ == "__main__":
-    A, B = matrix_basics()
-    dot_product_demo()
-    matrix_multiplication_demo(A, B)
-    transpose_demo(A)
-    eigen_demo(A)
-    practice_task()
+    print("\n\n-----PRACTICE TASK------\n")
+    
+    marks=([80,90,70])
+    weightage=([0.3,0.5,0.2])
+    
+    #1.dot product
+    total_score=np.dot(marks,weightage)
+    print("TOTAL SCORE:",total_score)
+    
+    #2.2x2 and transpose of B
+    A=np.array([[15,16],
+    [17,18]])
+    B=np.array([[19,20],
+    [21,22]])
+    
+    print("\nA:",A)
+    print("\nB:",B)
+    print("\nTranspose B:",B.T)
+    
+    #3.eigenvalues of matrix B
+    eigenvalues,eigenvectors=np.linalg.eig(B)
+    print("\nEIGEN VALUES:",eigenvalues)
+    print("\nEIGEN VECOTRS:",eigenvectors)
+    
+    #4.A@B
+    multiply=A @ B
+    print("\nA @ B:",multiply)
+    
+practice_task()

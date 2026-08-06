@@ -6,7 +6,17 @@ Goal:
     Go deeper into NumPy — understand vectorized operations (element-wise math
     without loops) and broadcasting (operating on arrays of different shapes).
     These two ideas are why every ML library can process huge datasets fast.
- 
+
+dataframe,matrix,(which is more accesssible)
+eg:dataframe covers the prev empty array and auto shrinks
+
+joins are too slow as compared to nested queries
+
+  numpy array is not indexed based
+  
+  linesapce function divides into equal parts
+  
+  which functions support global variables?????
 """
 
 import numpy as np 
@@ -37,6 +47,9 @@ def vect():
     print("max b:",max(b))
     print("sum a:",sum(a))
     print("min:",min(a))
+    print("\n--\n")
+    print("X by 2",b*2)
+#    print("STD:",std(a))
         
 vect()
 

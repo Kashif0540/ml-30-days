@@ -9,7 +9,6 @@ before any model ever sees it.
 
 import numpy as np
 
-
 def mean_and_spread_demo():
     print("--- Mean, Variance, Std Dev ---")
 

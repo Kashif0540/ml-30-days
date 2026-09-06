@@ -1,6 +1,6 @@
 # 30-Day Machine Learning Challenge 🤖
 
-A self-paced 30-day journey to learn Machine Learning from scratch — covering Python foundations, core ML algorithms, deep learning, and real-world deployment.
+A self-paced 30-day journey to learn Machine Learning from scratch covering Python foundations, core ML algorithms, deep learning, and real-world deployment.
 
 ---
 

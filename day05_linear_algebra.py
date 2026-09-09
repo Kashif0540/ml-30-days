@@ -8,7 +8,7 @@ This is the math NumPy has been quietly using under the hood since Day 1.
 
 """
 
-
+import numpy as np
 
 def matrix():
     print("\n               MUHAMMAD KASHIF(AI/ML day5->linear algebra basics)       \n")

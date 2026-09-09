@@ -3,6 +3,8 @@
 Day 5 - Linear Algebra Basics
 30 Day ML Challenge, Week 1
 
+Covering: matrices, dot product, matrix multiplication, transpose, eigenvalues.
+This is the math NumPy has been quietly using under the hood since Day 1.
 
 """
 

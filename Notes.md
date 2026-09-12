@@ -1,6 +1,6 @@
 # 30 Days ML — Notes
 
-
+Theory notes for each day of the challenge. Code and practice exercises live in the separate `dayXX_*.py` files — this file is just for the concepts, definitions, and examples so revision is quick.
 
 ---
 

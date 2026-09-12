@@ -4,7 +4,7 @@ Theory notes for each day of the challenge. Code and practice exercises live in 
 
 ---
 
-## Day 1: Python Refresher | List Comprehensions & NumPy Arrays
+## Day 1: Python Refresher | List Comprehensions & NumPy ArrayS
 
 **Topic:** List comprehensions, NumPy array basics, vectorization, indexing
 

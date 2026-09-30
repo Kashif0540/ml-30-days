@@ -9,7 +9,7 @@ A self-paced 30-day journey to learn Machine Learning from scratch covering Pyth
 ### Week 1 — Python & Math Foundations (Days 1–7)
 | Day | Topic | Concepts |
 |-----|-------|----------|
-| 1 | Python refresher | NumPy arrays, list comprehensions |
+| 1 | Python refresher | NumPy arrays,  comprehensions |
 | 2 | NumPy deep dive | Vectorized ops, broadcasting |
 | 3 | Pandas basics | DataFrames, groupby, merge |
 | 4 | Data visualization | Matplotlib, Seaborn |

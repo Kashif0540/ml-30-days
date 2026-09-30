@@ -615,7 +615,7 @@ df.groupby("species").mean(numeric_only=True)
 4. Average tip per day using groupby
 5. Written observations about patterns noticed in the data
 
-Solutions are in `day07_eda_project.py`.
+Solutions are in `day07_eda_project/day07_eda_project.py`.
 
 ---
 

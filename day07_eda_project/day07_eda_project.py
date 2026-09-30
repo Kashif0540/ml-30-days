@@ -13,6 +13,9 @@ Dataset: Iris (built into seaborn, no download needed)
 import pandas as pd #stores/manipulates data in tables/dataframes structure
 import seaborn as sns #data visualization library based on matplotlib
 import matplotlib.pyplot as plt #seaborn is built on matplotlib, so we will use this too
+import os
+
+OUT_DIR = os.path.dirname(os.path.abspath(__file__)) #save plots next to this script
 
 
 
@@ -40,21 +43,21 @@ def visualize(df):
     plt.figure()
     sns.histplot(df["sepal_length"], kde=True)
     plt.title("Sepal Length Distribution")
-    plt.savefig("day07_sepal_length_hist.png")
+    plt.savefig(os.path.join(OUT_DIR, "day07_sepal_length_hist.png"))
     plt.show()
 
 
     plt.figure()
     sns.scatterplot(x="sepal_length", y="petal_length", hue="species", data=df)
     plt.title("Sepal Length vs Petal Length by Species")
-    plt.savefig("day07_sepal_vs_petal_scatter.png")
+    plt.savefig(os.path.join(OUT_DIR, "day07_sepal_vs_petal_scatter.png"))
     plt.show()
 
 
     plt.figure()
     sns.boxplot(x="species",y="petal_length",data=df)
     plt.title("Petal length by Species")
-    plt.savefig("day07_petal_length_boxplot.png")
+    plt.savefig(os.path.join(OUT_DIR, "day07_petal_length_boxplot.png"))
     plt.show()
 
 

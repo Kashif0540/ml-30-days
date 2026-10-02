@@ -1,6 +1,6 @@
 """
 Day 7 - Mini Project: Exploratory Data Analysis (EDA)
-
+30 Day ML Challenge, Week 1
  
 This wraps up Week 1 by applying everything so far (Pandas, NumPy, stats,
 visualization) to a real dataset. The goal isn't to build a model yet -

@@ -1,4 +1,14 @@
-
+"""
+Day 7 - Mini Project: Exploratory Data Analysis (EDA)
+30 Day ML Challenge, Week 1
+ 
+This wraps up Week 1 by applying everything so far (Pandas, NumPy, stats,
+visualization) to a real dataset. The goal isn't to build a model yet -
+it's to understand the data before touching any model.
+ 
+Dataset: Iris (built into seaborn, no download needed)
+"""
+# -------------------
 
 import pandas as pd #stores/manipulates data in tables/dataframes structure
 import seaborn as sns #data visualization library based on matplotlib

@@ -1,6 +1,6 @@
 """
 Day 6 - Probability & Statistics
-30 Day ML Challenge, 
+30 Day ML Challenge, Week 1
 
 
 Covering: mean, variance, standard deviation, median, and normal distributions.

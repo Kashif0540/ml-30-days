@@ -2,7 +2,9 @@
 Day 6 - Probability & Statistics
 30 Day ML Challenge, Week 1
 
-
+Covering: mean, variance, standard deviation, median, and normal distributions.
+These are the tools used to summarize data and understand how spread out it is,
+before any model ever sees it.
 
 """
 
